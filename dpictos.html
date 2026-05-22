@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maîtriser Android : Paramétrage et Pictogrammes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: black;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 40px;
+        position: relative;
+      }
+
+      /* Navigation ultra-compacte */
+      .main-nav {
+        background: #58bbd5;
+        padding: 0.2rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        margin: -32px -40px 2rem -40px;
+        width: calc(100% + 80px);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-logo {
+        height: 25px;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        list-style: none;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+
+      .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(135deg, #58bbd5 0%, #059669 100%);
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        margin: 0 -40px 2rem -40px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Sections */
+      .section {
+        background: white;
+        margin-bottom: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-header {
+        background: linear-gradient(135deg, #58bbd5 0%, #059669 100%);
+        color: white;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 15px 15px 0 0;
+        position: relative;
+      }
+
+      logo-section {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        height: 30px;
+        opacity: 0.9;
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+      }
+
+      .section-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .section-header .icon {
+        font-size: 2rem;
+        opacity: 0.9;
+      }
+
+      .section-content {
+        padding: 2rem;
+      }
+
+      .subsection {
+        margin-bottom: 3rem;
+        border-left: 4px solid #58bbd5;
+        padding-left: 2rem;
+        background: #f8fafc;
+        border-radius: 0 8px 8px 0;
+        padding: 1.5rem 2rem;
+      }
+
+      .subsection h3 {
+        color: #58bbd5;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      th {
+        background: #58bbd5;
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      td {
+        padding: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      tr:nth-child(even) {
+        background: #f8fafc;
+      }
+
+      tr:hover {
+        background: #e6f3ff;
+      }
+
+      /* Screenshots */
+      .screenshot-container {
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .android-screenshot {
+        max-width: 300px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        margin: 1rem auto;
+        display: block;
+      }
+
+      .screenshot-annotation {
+        background: #f0f9ff;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #58bbd5;
+        font-size: 0.9rem;
+      }
+
+      /* Encadrés pédagogiques */
+      .memo-box {
+        background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+        border: 2px solid #58bbd5;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .memo-title {
+        background: #58bbd5;
+        color: white;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 1rem 2rem;
+        border-radius: 13px 13px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .astuce-box {
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        border: 2px solid #059669;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .astuce-title {
+        background: #059669;
+        color: white;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 1rem 2rem;
+        border-radius: 13px 13px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .piege-box {
+        background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+        border: 2px solid #dc2626;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .piege-title {
+        background: #dc2626;
+        color: white;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 1rem 2rem;
+        border-radius: 13px 13px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .exercise-box {
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border: 2px solid #7c3aed;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .exercise-title {
+        background: #7c3aed;
+        color: white;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 1rem 2rem;
+        border-radius: 13px 13px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .plus-loin-box {
+        background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+        border: 2px solid #0891b2;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .plus-loin-title {
+        background: #0891b2;
+        color: white;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 1rem 2rem;
+        border-radius: 13px 13px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Quiz */
+      .quiz-container {
+        margin: 2rem 0;
+      }
+
+      .question {
+        display: none;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .question.active {
+        display: block;
+      }
+
+      .question h4 {
+        color: #58bbd5;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .answers {
+        margin: 1.5rem 0;
+      }
+
+      .answer {
+        background: #f8f9fa;
+        border: 2px solid #e2e8f0;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .answer:hover {
+        border-color: #58bbd5;
+        background: #f0f9ff;
+      }
+
+      .answer.selected {
+        border-color: #58bbd5;
+        background: #e6f3ff;
+      }
+
+      .quiz-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      .quiz-btn {
+        background: #58bbd5;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .quiz-btn:hover {
+        background: #0891b2;
+      }
+
+      .quiz-btn:disabled {
+        background: #cbd5e1;
+        cursor: not-allowed;
+      }
+
+      .quiz-results {
+        display: none;
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .score-display {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #58bbd5;
+        margin: 1rem 0;
+      }
+
+      /* Footer */
+      .footer {
+        background: linear-gradient(135deg, #58bbd5 0%, #059669 100%);
+        color: white;
+        padding: 3rem 2rem 2rem 2rem;
+        text-align: center;
+        border-radius: 15px;
+        margin-top: 3rem;
+      }
+
+      .footer h3 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+      }
+
+      .footer p {
+        margin: 0.5rem 0;
+        opacity: 0.9;
+      }
+
+      /* Styles pour exemples visuels comparatifs */
+      .visual-example-container {
+        background: #f0f9ff;
+        border: 3px solid #58bbd5;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 3rem 0;
+      }
+
+      .example-title {
+        background: linear-gradient(135deg, #58bbd5 0%, #0891b2 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Option 1: Tableau enrichi avec icônes SVG */
+      .icon-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon-table th {
+        background: #58bbd5;
+        color: white;
+        padding: 1rem;
+        text-align: left;
+      }
+
+      .icon-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: middle;
+      }
+
+      .icon-cell {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .icon-svg {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .badge-active {
+        background: #bbf7d0;
+        color: #065f46;
+      }
+
+      .badge-inactive {
+        background: #e2e8f0;
+        color: #475569;
+      }
+
+      .badge-playing {
+        background: #fed7aa;
+        color: #9a3412;
+      }
+
+      /* Option 2: Cartes visuelles colorées */
+      .visual-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .visual-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .visual-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-active {
+        border-color: #059669;
+        background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      }
+
+      .card-inactive {
+        border-color: #64748b;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      .card-media {
+        border-color: #f59e0b;
+        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .card-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .card-info {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        color: #475569;
+      }
+
+      .card-action {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: #58bbd5;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      /* Option 3: Schéma annoté avec zones numérotées */
+      .annotated-diagram {
+        position: relative;
+        max-width: 400px;
+        margin: 2rem auto;
+      }
+
+      .diagram-image {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .annotation-marker {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #58bbd5;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        border: 3px solid white;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .annotation-marker:hover {
+        transform: scale(1.2);
+      }
+
+      /* Positions des marqueurs (à ajuster selon image) */
+      .marker-1 { top: 15%; left: 10%; background: #0891b2; }
+      .marker-2 { top: 15%; right: 10%; background: #0891b2; }
+      .marker-3 { top: 40%; left: 50%; transform: translateX(-50%); background: #f59e0b; }
+      .marker-4 { top: 60%; left: 15%; background: #64748b; }
+      .marker-5 { top: 60%; right: 15%; background: #64748b; }
+
+      .legend-box {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0.75rem 0;
+        padding: 0.75rem;
+        background: #f8fafc;
+        border-radius: 8px;
+      }
+
+      .legend-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .legend-text {
+        flex: 1;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .legend-text strong {
+        color: #1e293b;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 16px 20px;
+        }
+
+        .visual-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .annotated-diagram {
+          max-width: 100%;
+        }
+
+        .visual-example-container {
+          padding: 1rem;
+        }
+
+        .main-nav {
+          margin: -16px -20px 2rem -20px;
+          width: calc(100% + 40px);
+        }
+
+        .nav-content {
+          padding: 0 20px;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .header {
+          margin: 0 -20px 2rem -20px;
+          padding: 1.5rem 1rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .android-screenshot {
+          max-width: 250px;
+        }
+
+        table {
+          font-size: 0.9rem;
+        }
+
+        th,
+        td {
+          padding: 0.75rem;
+        }
+      }
+
+      /* ========================================
+         STYLES POUR MINI-JEUX GAMIFIÉS
+         ======================================== */
+
+      /* Container général pour les jeux */
+      .game-container {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border: 4px solid #64748b;
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 3rem 0;
+        box-shadow: 0 10px 40px rgba(71, 85, 105, 0.2);
+      }
+
+      .game-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .game-title {
+        color: #1e293b;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .game-instructions {
+        color: #475569;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Stats du jeu (timer, score, coups) */
+      .game-stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        background: white;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        min-width: 120px;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #64748b;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0891b2;
+      }
+
+      /* Memory Game - Grille de cartes */
+      .memory-board {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+      }
+
+      .memory-card {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 3px solid #334155;
+        position: relative;
+      }
+
+      .memory-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .memory-card.flipped {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-color: #94a3b8;
+        animation: flipCard 0.4s ease;
+      }
+      
+      @keyframes flipCard {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .memory-card.matched {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border-color: #047857;
+        animation: matchAnimation 0.6s ease;
+      }
+
+      .memory-card .card-back {
+        font-size: 3rem;
+        color: white;
+      }
+
+      .memory-card .card-front {
+        display: none;
+        font-size: 2rem;
+      }
+
+      .memory-card.flipped .card-back {
+        display: none;
+      }
+
+      .memory-card.flipped .card-front {
+        display: block;
+      }
+
+      @keyframes matchAnimation {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+
+      /* Quiz Logic - Questions avec choix multiples */
+      .logic-quiz-container {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .quiz-question {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .question-text {
+        font-size: 1.3rem;
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .quiz-options {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .quiz-option {
+        background: #f8fafc;
+        padding: 1.2rem;
+        border-radius: 10px;
+        border: 2px solid #cbd5e1;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .quiz-option:hover {
+        background: #e0f2fe;
+        border-color: #0891b2;
+        transform: translateX(5px);
+      }
+
+      .quiz-option.selected {
+        background: #dbeafe;
+        border-color: #2563eb;
+        font-weight: 600;
+      }
+
+      .quiz-option.correct {
+        background: #d1fae5;
+        border-color: #10b981;
+        animation: correctAnswer 0.5s ease;
+      }
+
+      .quiz-option.incorrect {
+        background: #fee2e2;
+        border-color: #ef4444;
+        animation: incorrectAnswer 0.5s ease;
+      }
+
+      @keyframes correctAnswer {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+      }
+
+      @keyframes incorrectAnswer {
+        0%, 100% { transform: translateX(0); }
+        25%, 75% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+      }
+
+      /* Jeu de l'Intrus */
+      .intrus-game {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .intrus-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .intrus-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 3px solid #cbd5e1;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .intrus-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border-color: #0891b2;
+      }
+
+      .intrus-card .icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      .intrus-card .label {
+        font-size: 1rem;
+        color: #475569;
+        font-weight: 500;
+      }
+
+      .intrus-card.selected-intrus {
+        border-color: #f59e0b;
+        background: #fef3c7;
+      }
+
+      .intrus-card.correct-intrus {
+        border-color: #10b981;
+        background: #d1fae5;
+        animation: correctIntrus 0.6s ease;
+      }
+
+      .intrus-card.wrong-intrus {
+        border-color: #ef4444;
+        background: #fee2e2;
+        animation: shake 0.5s ease;
+      }
+
+      @keyframes correctIntrus {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1) rotate(5deg); }
+      }
+
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+      }
+
+      /* Drag & Drop */
+      .drag-drop-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .drag-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 12px;
+      }
+
+      .drag-item {
+        background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        cursor: grab;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-size: 2rem;
+      }
+
+      .drag-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .drag-item.dragging {
+        opacity: 0.5;
+        cursor: grabbing;
+      }
+
+      .drop-zones {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .drop-zone {
+        background: #f8fafc;
+        border: 3px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 1.5rem;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .drop-zone.drag-over {
+        background: #dbeafe;
+        border-color: #0891b2;
+        border-style: solid;
+      }
+
+      .drop-zone.correct {
+        background: #d1fae5;
+        border-color: #10b981;
+        border-style: solid;
+      }
+
+      .drop-zone.incorrect {
+        background: #fee2e2;
+        border-color: #ef4444;
+        border-style: solid;
+      }
+
+      .drop-zone-label {
+        font-weight: 600;
+        color: #475569;
+        min-width: 200px;
+      }
+
+      .drop-zone-content {
+        flex: 1;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      /* Mémos Interactifs avec Révélation */
+      .memo-interactive {
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border: 3px solid #7c3aed;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .memo-items {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .memo-item {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .memo-question {
+        font-size: 1.2rem;
+        color: #1e293b;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .memo-answer {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #7c3aed;
+        display: none;
+        margin-top: 1rem;
+        animation: slideDown 0.4s ease;
+      }
+
+      .memo-answer.revealed {
+        display: block;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Boutons de jeu */
+      .game-button {
+        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+      }
+
+      .game-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+      }
+
+      .game-button:active {
+        transform: translateY(0);
+      }
+
+      .game-button.secondary {
+        background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+        box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+      }
+
+      .game-button.success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      }
+
+      .game-button.reveal {
+        background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+      }
+
+      /* Feedback visuel */
+      .feedback-message {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+
+      .feedback-message.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .feedback-message.success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: #065f46;
+        border: 2px solid #10b981;
+      }
+
+      .feedback-message.error {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        color: #991b1b;
+        border: 2px solid #ef4444;
+      }
+
+      .feedback-message.info {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        color: #1e40af;
+        border: 2px solid #3b82f6;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      /* Score final */
+      .final-score {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border: 4px solid #f59e0b;
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .final-score .score-number {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #92400e;
+        margin: 1rem 0;
+      }
+
+      .final-score .score-emoji {
+        font-size: 5rem;
+        margin: 1rem 0;
+      }
+
+      /* Responsive pour jeux */
+      @media (max-width: 768px) {
+        .memory-board {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.5rem;
+        }
+
+        .game-stats {
+          gap: 1rem;
+        }
+
+        .stat-item {
+          padding: 0.75rem 1rem;
+          min-width: 100px;
+        }
+
+        .stat-value {
+          font-size: 1.5rem;
+        }
+
+        .intrus-options {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .drag-items {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+    </style>
+  </head>
+  <body style="">
+    <!-- Navigation ultra-compacte -->
+    
+
+    <!-- Header -->
+    
+
+    
+
+    <!-- Section 1: Le panneau de contrôle rapide -->
+    
+
+    <!-- Section 2: Les paramètres essentiels -->
+    <section class="section" id="section2">
+      
+  
+          
+
+        <!-- 🎮 MINI-JEU 2 : QUIZ LOGIC - Devinez le pictogramme -->
+        <div class="game-container" id="logicQuiz">
+          <div class="game-header">
+            <h3 class="game-title">🧩 Quiz Logic : Devinez le pictogramme mystère !</h3>
+            <p class="game-instructions">
+              Lisez la description et trouvez le pictogramme correspondant parmi les propositions.
+            </p>
+          </div>
+
+          <div class="game-stats">
+            <div class="stat-item">
+              <span class="stat-label">📊 Score</span>
+              <span class="stat-value" id="logicScore">0/5</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">🎯 Précision</span>
+              <span class="stat-value" id="logicAccuracy">0%</span>
+            </div>
+          </div>
+
+          <div class="logic-quiz-container" id="logicQuestions"><div class="quiz-question">
+            <div class="question-text">❓ Je permets d'activer/désactiver toutes les connexions sans fil d'un coup. Qui suis-je ?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-question="0" data-answer="0">
+                <span style="font-weight: 700; color: #64748b;">A.</span>
+                <span>WiFi</span>
+              </div>
+            
+              <div class="quiz-option" data-question="0" data-answer="1">
+                <span style="font-weight: 700; color: #64748b;">B.</span>
+                <span>Bluetooth</span>
+              </div>
+            
+              <div class="quiz-option" data-question="0" data-answer="2">
+                <span style="font-weight: 700; color: #64748b;">C.</span>
+                <span>Mode Avion</span>
+              </div>
+            
+              <div class="quiz-option" data-question="0" data-answer="3">
+                <span style="font-weight: 700; color: #64748b;">D.</span>
+                <span>Données mobiles</span>
+              </div>
+            </div>
+          </div><div class="quiz-question">
+            <div class="question-text">❓ Mon pictogramme est une icône avec 3 ondes croissantes. Je connecte votre smartphone à internet sans fil. Qui suis-je ?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-question="1" data-answer="0">
+                <span style="font-weight: 700; color: #64748b;">A.</span>
+                <span>Bluetooth</span>
+              </div>
+            
+              <div class="quiz-option" data-question="1" data-answer="1">
+                <span style="font-weight: 700; color: #64748b;">B.</span>
+                <span>WiFi</span>
+              </div>
+            
+              <div class="quiz-option" data-question="1" data-answer="2">
+                <span style="font-weight: 700; color: #64748b;">C.</span>
+                <span>NFC</span>
+              </div>
+            
+              <div class="quiz-option" data-question="1" data-answer="3">
+                <span style="font-weight: 700; color: #64748b;">D.</span>
+                <span>Données mobiles</span>
+              </div>
+            </div>
+          </div><div class="quiz-question">
+            <div class="question-text">❓ Je suis un curseur horizontal qui permet d'ajuster l'intensité de l'écran. Qui suis-je ?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-question="2" data-answer="0">
+                <span style="font-weight: 700; color: #64748b;">A.</span>
+                <span>Volume</span>
+              </div>
+            
+              <div class="quiz-option" data-question="2" data-answer="1">
+                <span style="font-weight: 700; color: #64748b;">B.</span>
+                <span>Luminosité</span>
+              </div>
+            
+              <div class="quiz-option" data-question="2" data-answer="2">
+                <span style="font-weight: 700; color: #64748b;">C.</span>
+                <span>Mode Vibreur</span>
+              </div>
+            
+              <div class="quiz-option" data-question="2" data-answer="3">
+                <span style="font-weight: 700; color: #64748b;">D.</span>
+                <span>Mode Économie</span>
+              </div>
+            </div>
+          </div><div class="quiz-question">
+            <div class="question-text">❓ Quand je suis BLEU, je consomme de la batterie. Quand je suis GRIS, je suis éteint. Qui suis-je ?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-question="3" data-answer="0">
+                <span style="font-weight: 700; color: #64748b;">A.</span>
+                <span>Mode Avion</span>
+              </div>
+            
+              <div class="quiz-option" data-question="3" data-answer="1">
+                <span style="font-weight: 700; color: #64748b;">B.</span>
+                <span>Bluetooth</span>
+              </div>
+            
+              <div class="quiz-option" data-question="3" data-answer="2">
+                <span style="font-weight: 700; color: #64748b;">C.</span>
+                <span>Lampe torche</span>
+              </div>
+            
+              <div class="quiz-option" data-question="3" data-answer="3">
+                <span style="font-weight: 700; color: #64748b;">D.</span>
+                <span>Rotation écran</span>
+              </div>
+            </div>
+          </div><div class="quiz-question">
+            <div class="question-text">❓ Je permets d'allumer le flash LED de votre smartphone pour éclairer. Qui suis-je ?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-question="4" data-answer="0">
+                <span style="font-weight: 700; color: #64748b;">A.</span>
+                <span>Mode nuit</span>
+              </div>
+            
+              <div class="quiz-option" data-question="4" data-answer="1">
+                <span style="font-weight: 700; color: #64748b;">B.</span>
+                <span>Lampe torche</span>
+              </div>
+            
+              <div class="quiz-option" data-question="4" data-answer="2">
+                <span style="font-weight: 700; color: #64748b;">C.</span>
+                <span>Économie énergie</span>
+              </div>
+            
+              <div class="quiz-option" data-question="4" data-answer="3">
+                <span style="font-weight: 700; color: #64748b;">D.</span>
+                <span>Mode lecture</span>
+              </div>
+            </div>
+          </div></div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button class="game-button" id="checkLogicBtn" onclick="checkLogicAnswers()">✅ Vérifier mes réponses</button>
+            <button class="game-button secondary" onclick="resetLogicQuiz()" style="margin-left: 1rem;">🔄 Recommencer</button>
+          </div>
+
+          <div class="feedback-message" id="logicFeedback"></div>
+        </div>
+
+  
+
+
+    </section>
+
+       
+
+    <!-- Section Conclusion -->
+    <section class="section" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: none;">
+            
+
+          </div>
+        </div>
+
+          </div>
+        </div>
+
+        
+
+       
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    
+
+    <!-- Script Quiz interactif -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+      // Données quiz 8 questions
+      const quizData = [
+        {
+          question: "1. Dans le panneau de contrôle Android, que signifie une tuile BLEUE ?",
+          answers: ["Fonction désactivée", "Fonction activée et opérationnelle", "Fonction en erreur", "Fonction en cours de chargement"],
+          correct: 1
+        },
+        {
+          question: "2. Quelle action permet d'accéder aux paramètres avancés WiFi depuis le panneau de contrôle ?",
+          answers: ["Toucher simple", "Appui long sur tuile WiFi", "Glisser vers le bas", "Double tap"],
+          correct: 1
+        },
+        {
+          question: "3. Dans les paramètres Son, quel volume reste TOUJOURS actif même en mode silencieux ?",
+          answers: ["Notifications", "Sonnerie", "Alarme réveil", "Médias"],
+          correct: 2
+        },
+        {
+          question: "4. Une application 'Lampe torche' demande accès à vos Contacts. Quelle est la réaction correcte ?",
+          answers: ["Accepter (c'est normal)", "Refuser et désinstaller immédiatement", "Accepter temporairement", "Demander conseil à l'éditeur"],
+          correct: 1
+        },
+        {
+          question: "5. Dans une notification WhatsApp '6 messages de 5 discussions', combien de personnes ont écrit ?",
+          answers: ["6 personnes", "5 personnes ou groupes", "11 personnes", "1 personne avec 6 messages"],
+          correct: 1
+        },
+                {
+          question: "6. Sur le screenshot WiFi, que signifie le cadenas vert à côté du réseau ?",
+          answers: ["Réseau gratuit", "Réseau sécurisé par mot de passe WPA2", "Réseau lent", "Réseau public"],
+          correct: 1
+        },
+                              {
+          question: "7. Sur Leboncoin, quelle est la règle de sécurité pour les paiements ?",
+          answers: ["Virement bancaire direct", "Espèces uniquement", "Toujours via messagerie interne Leboncoin", "PayPal uniquement"],
+          correct: 2
+        },
+        {
+          question: "8. Que faire si une notification affiche 'URGENT ! Colis en attente : bit.ly/col1s' ?",
+          answers: ["Cliquer immédiatement", "Supprimer (arnaque typique)", "Partager à ses contacts", "Contacter le transporteur"],
+          correct: 1
+        }
+             ];
+
+      let currentQuestion = 0;
+      let score = 0;
+      let userAnswers = [];
+
+      function initQuiz() {
+        displayQuestion();
+      }
+
+      function displayQuestion() {
+        const container = document.getElementById('quizContainer');
+        const data = quizData[currentQuestion];
+        
+        let html = `
+          <div class="question active">
+            <h4>${data.question}</h4>
+            <div class="answers">
+        `;
+
+        data.answers.forEach((answer, index) => {
+          html += `
+            <div class="answer" onclick="selectAnswer(${index})">
+              <input type="radio" name="q${currentQuestion}" value="${index}" id="q${currentQuestion}_${index}">
+              <label for="q${currentQuestion}_${index}">${answer}</label>
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+            <div class="quiz-controls">
+              <div style="color: #64748b; font-weight: 600;">Question ${currentQuestion + 1} / ${quizData.length}</div>
+              <button class="quiz-btn" onclick="nextQuestion()" id="nextBtn" disabled>
+                ${currentQuestion === quizData.length - 1 ? 'Voir résultats' : 'Question suivante'}
+              </button>
+            </div>
+          </div>
+        `;
+
+        container.innerHTML = html;
+      }
+
+      function selectAnswer(index) {
+        userAnswers[currentQuestion] = index;
+        document.querySelectorAll('.answer').forEach(a => a.classList.remove('selected'));
+        document.querySelectorAll('.answer')[index].classList.add('selected');
+        document.getElementById('nextBtn').disabled = false;
+      }
+
+      function nextQuestion() {
+        if (userAnswers[currentQuestion] === quizData[currentQuestion].correct) {
+          score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion < quizData.length) {
+          displayQuestion();
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        document.getElementById('quizContainer').style.display = 'none';
+        const resultsDiv = document.getElementById('quizResults');
+        resultsDiv.style.display = 'block';
+
+        document.getElementById('scoreDisplay').textContent = `${score}/8`;
+
+        let badge = '';
+        let message = '';
+        let badgeColor = '';
+
+        if (score >= 8) {
+          badge = '🏆';
+          message = 'Badge PLATINE ! Expert Android certifié !';
+          badgeColor = '#e5e7eb';
+        } else if (score >= 11) {
+          badge = '🥇';
+          message = 'Badge OR ! Excellente maîtrise d\'Android !';
+          badgeColor = '#fbbf24';
+        } else if (score >= 6) {
+          badge = '🥈';
+          message = 'Badge ARGENT ! Bonne compréhension générale.';
+          badgeColor = '#9ca3af';
+        } else if (score >= 5) {
+          badge = '🥉';
+          message = 'Badge BRONZE ! Bases acquises, poursuivez l\'entraînement.';
+          badgeColor = '#cd7f32';
+        } else {
+          badge = '📚';
+          message = 'Relisez la formation et retentez le quiz !';
+          badgeColor = '#64748b';
+        }
+
+        document.getElementById('badgeDisplay').textContent = badge;
+        document.getElementById('scoreMessage').textContent = message;
+        document.getElementById('scoreMessage').style.color = badgeColor;
+      }
+
+      // Initialisation au chargement
+      window.addEventListener('DOMContentLoaded', initQuiz);
+
+
+      /* ========================================
+         JAVASCRIPT POUR MINI-JEUX GAMIFIÉS
+         ======================================== */
+
+      // ==========================================
+      // MINI-JEU 1 : MEMORY GAME (NOM ↔ PICTOGRAMME)
+      // ==========================================
+      
+      const memoryPairs = [
+        { name: 'WiFi', icon: '📶', id: 'wifi' },
+        { name: '4G/5G', icon: '📱', id: 'mobile' },
+        { name: 'Bluetooth', icon: 'ᛒ', id: 'bluetooth' },
+        { name: 'Mode Avion', icon: '✈️', id: 'avion' },
+        { name: 'Lampe', icon: '🔦', id: 'lampe' },
+        { name: 'Volume', icon: '🔊', id: 'volume' },
+        { name: 'Luminosité', icon: '☀️', id: 'luminosite' },
+        { name: 'Batterie', icon: '🔋', id: 'batterie' }
+      ];
+      
+      let memoryCards = [];
+      let flippedCards = [];
+      let matchedPairs = 0;
+      let moves = 0;
+      let memoryTimer = 0;
+      let memoryInterval = null;
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function initMemoryGame() {
+        const board = document.getElementById('memoryBoard');
+        if (!board) return;
+        
+        // Créer les cartes : 1 nom + 1 pictogramme pour chaque paire
+        memoryCards = [];
+        memoryPairs.forEach(pair => {
+          memoryCards.push({ content: pair.name, type: 'text', id: pair.id, pair: pair });
+          memoryCards.push({ content: pair.icon, type: 'icon', id: pair.id, pair: pair });
+        });
+        
+        memoryCards = shuffleArray(memoryCards);
+        board.innerHTML = '';
+        
+        memoryCards.forEach((card, index) => {
+          const cardDiv = document.createElement('div');
+          cardDiv.className = 'memory-card';
+          cardDiv.dataset.cardId = card.id;
+          cardDiv.dataset.cardType = card.type;
+          cardDiv.dataset.index = index;
+          cardDiv.innerHTML = `
+            <span class="card-back">❓</span>
+            <span class="card-front" style="font-size: ${card.type === 'text' ? '1rem' : '2.5rem'}; font-weight: ${card.type === 'text' ? '700' : 'normal'};">${card.content}</span>
+          `;
+          cardDiv.addEventListener('click', flipCard);
+          board.appendChild(cardDiv);
+        });
+
+        // Démarrer chrono
+        if (memoryInterval) clearInterval(memoryInterval);
+        memoryTimer = 0;
+        moves = 0;
+        matchedPairs = 0;
+        updateMemoryStats();
+        
+        memoryInterval = setInterval(() => {
+          memoryTimer++;
+          updateMemoryStats();
+        }, 1000);
+      }
+
+      function flipCard(e) {
+        const card = e.currentTarget;
+        if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        if (flippedCards.length >= 2) return;
+
+        card.classList.add('flipped');
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+          moves++;
+          updateMemoryStats();
+          checkMatch();
+        }
+      }
+
+      function checkMatch() {
+        const [card1, card2] = flippedCards;
+        const id1 = card1.dataset.cardId;
+        const id2 = card2.dataset.cardId;
+
+        if (id1 === id2) {
+          // Match ! (même paire)
+          setTimeout(() => {
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+            matchedPairs++;
+            updateMemoryStats();
+            flippedCards = [];
+
+            if (matchedPairs === memoryPairs.length) {
+              endMemoryGame();
+            }
+          }, 600);
+        } else {
+          // Pas de match
+          setTimeout(() => {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            flippedCards = [];
+          }, 1000);
+        }
+      }
+
+      function updateMemoryStats() {
+        const minutes = Math.floor(memoryTimer / 60);
+        const seconds = memoryTimer % 60;
+        document.getElementById('memoryTimer').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('memoryMoves').textContent = moves;
+        document.getElementById('memoryPairs').textContent = `${matchedPairs}/${memoryPairs.length}`;
+      }
+
+      function endMemoryGame() {
+        clearInterval(memoryInterval);
+        const feedback = document.getElementById('memoryFeedback');
+        feedback.className = 'feedback-message success show';
+        feedback.innerHTML = `
+          🎉 Bravo ! Vous avez associé tous les noms et pictogrammes !<br>
+          ⏱️ Temps : ${Math.floor(memoryTimer / 60)}:${(memoryTimer % 60).toString().padStart(2, '0')} | 
+          🎯 Coups : ${moves}
+        `;
+      }
+
+      function resetMemoryGame() {
+        const feedback = document.getElementById('memoryFeedback');
+        feedback.className = 'feedback-message';
+        flippedCards = [];
+        matchedPairs = 0;
+        moves = 0;
+        initMemoryGame();
+      }
+
+      // ==========================================
+      // MINI-JEU 2 : QUIZ LOGIC
+      // ==========================================
+      
+      const logicQuestions = [
+        {
+          question: "Je permets d'activer/désactiver toutes les connexions sans fil d'un coup. Qui suis-je ?",
+          options: ["WiFi", "Bluetooth", "Mode Avion", "Données mobiles"],
+          correct: 2,
+          explanation: "Le Mode Avion désactive WiFi, Bluetooth et données mobiles simultanément."
+        },
+        {
+          question: "Mon pictogramme est une icône avec 3 ondes croissantes. Je connecte votre smartphone à internet sans fil. Qui suis-je ?",
+          options: ["Bluetooth", "WiFi", "NFC", "Données mobiles"],
+          correct: 1,
+          explanation: "Le WiFi utilise le symbole des ondes radio pour se connecter à internet."
+        },
+        {
+          question: "Je suis un curseur horizontal qui permet d'ajuster l'intensité de l'écran. Qui suis-je ?",
+          options: ["Volume", "Luminosité", "Mode Vibreur", "Mode Économie"],
+          correct: 1,
+          explanation: "Le curseur de luminosité contrôle l'intensité de l'éclairage de l'écran."
+        },
+        {
+          question: "Quand je suis BLEU, je consomme de la batterie. Quand je suis GRIS, je suis éteint. Qui suis-je ?",
+          options: ["Mode Avion", "Bluetooth", "Lampe torche", "Rotation écran"],
+          correct: 1,
+          explanation: "Le code couleur Android : BLEU = actif, GRIS = inactif."
+        },
+        {
+          question: "Je permets d'allumer le flash LED de votre smartphone pour éclairer. Qui suis-je ?",
+          options: ["Mode nuit", "Lampe torche", "Économie énergie", "Mode lecture"],
+          correct: 1,
+          explanation: "La lampe torche utilise le flash LED de l'appareil photo."
+        }
+      ];
+
+      let logicAnswers = [];
+
+      function initLogicQuiz() {
+        const container = document.getElementById('logicQuestions');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        logicAnswers = [];
+
+        logicQuestions.forEach((q, qIndex) => {
+          const questionDiv = document.createElement('div');
+          questionDiv.className = 'quiz-question';
+          
+          let optionsHTML = '';
+          q.options.forEach((option, oIndex) => {
+            optionsHTML += `
+              <div class="quiz-option" data-question="${qIndex}" data-answer="${oIndex}">
+                <span style="font-weight: 700; color: #64748b;">${String.fromCharCode(65 + oIndex)}.</span>
+                <span>${option}</span>
+              </div>
+            `;
+          });
+
+          questionDiv.innerHTML = `
+            <div class="question-text">❓ ${q.question}</div>
+            <div class="quiz-options">${optionsHTML}</div>
+          `;
+
+          container.appendChild(questionDiv);
+        });
+
+        // Event listeners
+        document.querySelectorAll('.quiz-option').forEach(option => {
+          option.addEventListener('click', selectLogicOption);
+        });
+      }
+
+      function selectLogicOption(e) {
+        const option = e.currentTarget;
+        const qIndex = parseInt(option.dataset.question);
+        
+        // Désélectionner les autres options de cette question
+        document.querySelectorAll(`[data-question="${qIndex}"]`).forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        
+        option.classList.add('selected');
+        logicAnswers[qIndex] = parseInt(option.dataset.answer);
+      }
+
+      function checkLogicAnswers() {
+        if (logicAnswers.length < logicQuestions.length) {
+          alert('⚠️ Veuillez répondre à toutes les questions !');
+          return;
+        }
+
+        let correct = 0;
+        
+        logicQuestions.forEach((q, qIndex) => {
+          const userAnswer = logicAnswers[qIndex];
+          const options = document.querySelectorAll(`[data-question="${qIndex}"]`);
+          
+          options.forEach((option, oIndex) => {
+            option.classList.remove('selected');
+            if (oIndex === q.correct) {
+              option.classList.add('correct');
+              option.innerHTML += `<br><small style="color: #065f46;">✅ ${q.explanation}</small>`;
+            } else if (oIndex === userAnswer && userAnswer !== q.correct) {
+              option.classList.add('incorrect');
+            }
+          });
+
+          if (userAnswer === q.correct) correct++;
+        });
+
+        const percentage = Math.round((correct / logicQuestions.length) * 100);
+        document.getElementById('logicScore').textContent = `${correct}/${logicQuestions.length}`;
+        document.getElementById('logicAccuracy').textContent = `${percentage}%`;
+
+        const feedback = document.getElementById('logicFeedback');
+        feedback.className = `feedback-message ${percentage >= 60 ? 'success' : 'error'} show`;
+        feedback.innerHTML = `
+          ${percentage >= 80 ? '🎉 Excellent !' : percentage >= 60 ? '👍 Bien joué !' : '📚 Continuez vos efforts !'}<br>
+          Score : ${correct}/${logicQuestions.length} (${percentage}%)
+        `;
+
+        document.getElementById('checkLogicBtn').disabled = true;
+      }
+
+      function resetLogicQuiz() {
+        document.getElementById('logicFeedback').className = 'feedback-message';
+        document.getElementById('checkLogicBtn').disabled = false;
+        document.getElementById('logicScore').textContent = '0/5';
+        document.getElementById('logicAccuracy').textContent = '0%';
+        initLogicQuiz();
+      }
+
+      // ==========================================
+      // MINI-JEU 3 : JEU DE L'INTRUS
+      // ==========================================
+      
+      const intrusData = [
+        {
+          context: "Pictogrammes de CONNECTIVITÉ",
+          options: [
+            { icon: '📶', label: 'WiFi', isIntrus: false },
+            { icon: 'ᛒ', label: 'Bluetooth', isIntrus: false },
+            { icon: '📱', label: 'Données', isIntrus: false },
+            { icon: '🔦', label: 'Lampe', isIntrus: true }
+          ],
+          explanation: "La lampe torche n'est PAS une connectivité, c'est un utilitaire."
+        },
+        {
+          context: "Pictogrammes MODE SONORE",
+          options: [
+            { icon: '🔊', label: 'Son', isIntrus: false },
+            { icon: '🔇', label: 'Silence', isIntrus: false },
+            { icon: '📳', label: 'Vibreur', isIntrus: false },
+            { icon: '✈️', label: 'Avion', isIntrus: true }
+          ],
+          explanation: "Le Mode Avion gère les connexions, pas le son."
+        },
+        {
+          context: "Pictogrammes NOTIFICATIONS",
+          options: [
+            { icon: '🔔', label: 'Cloche', isIntrus: false },
+            { icon: '🔕', label: 'Muet', isIntrus: false },
+            { icon: '⏰', label: 'Alarme', isIntrus: false },
+            { icon: '📍', label: 'GPS', isIntrus: true }
+          ],
+          explanation: "La localisation GPS n'est pas liée aux notifications."
+        },
+        {
+          context: "Pictogrammes ÉNERGIE",
+          options: [
+            { icon: '🔋', label: 'Batterie', isIntrus: false },
+            { icon: '⚡', label: 'Charge', isIntrus: false },
+            { icon: '💡', label: 'Économie', isIntrus: false },
+            { icon: '🔒', label: 'Sécurité', isIntrus: true }
+          ],
+          explanation: "Le cadenas concerne la sécurité, pas l'énergie."
+        },
+        {
+          context: "Pictogrammes ÉCRAN",
+          options: [
+            { icon: '☀️', label: 'Luminosité', isIntrus: false },
+            { icon: '🔄', label: 'Rotation', isIntrus: false },
+            { icon: '🌙', label: 'Mode Nuit', isIntrus: false },
+            { icon: '📷', label: 'Appareil photo', isIntrus: true }
+          ],
+          explanation: "L'appareil photo n'est pas un réglage d'écran."
+        }
+      ];
+
+      let currentIntrusQuestion = 0;
+      let intrusCorrectCount = 0;
+
+      function initIntrusGame() {
+        currentIntrusQuestion = 0;
+        intrusCorrectCount = 0;
+        showIntrusQuestion();
+      }
+
+      function showIntrusQuestion() {
+        const data = intrusData[currentIntrusQuestion];
+        
+        document.getElementById('intrusContext').textContent = data.context;
+        document.getElementById('intrusQuestion').textContent = `${currentIntrusQuestion + 1}/5`;
+        document.getElementById('intrusScore').textContent = intrusCorrectCount;
+
+        const optionsContainer = document.getElementById('intrusOptions');
+        optionsContainer.innerHTML = '';
+
+        data.options.forEach((item, index) => {
+          const card = document.createElement('div');
+          card.className = 'intrus-card';
+          card.dataset.index = index;
+          card.dataset.isIntrus = item.isIntrus;
+          card.innerHTML = `
+            <div class="icon">${item.icon}</div>
+            <div class="label">${item.label}</div>
+          `;
+          card.addEventListener('click', selectIntrus);
+          optionsContainer.appendChild(card);
+        });
+
+        document.getElementById('intrusFeedback').className = 'feedback-message';
+      }
+
+      function selectIntrus(e) {
+        const card = e.currentTarget;
+        const isIntrus = card.dataset.isIntrus === 'true';
+        const data = intrusData[currentIntrusQuestion];
+
+        if (isIntrus) {
+          card.classList.add('correct-intrus');
+          intrusCorrectCount++;
+          document.getElementById('intrusScore').textContent = intrusCorrectCount;
+          
+          const feedback = document.getElementById('intrusFeedback');
+          feedback.className = 'feedback-message success show';
+          feedback.innerHTML = `✅ Bravo ! ${data.explanation}`;
+
+          setTimeout(() => {
+            currentIntrusQuestion++;
+            if (currentIntrusQuestion < intrusData.length) {
+              showIntrusQuestion();
+            } else {
+              endIntrusGame();
+            }
+          }, 2000);
+        } else {
+          card.classList.add('wrong-intrus');
+          
+          const feedback = document.getElementById('intrusFeedback');
+          feedback.className = 'feedback-message error show';
+          feedback.innerHTML = '❌ Ce n\'est pas l\'intrus. Essayez encore !';
+
+          setTimeout(() => {
+            card.classList.remove('wrong-intrus');
+            feedback.className = 'feedback-message';
+          }, 1500);
+        }
+      }
+
+      function endIntrusGame() {
+        const percentage = Math.round((intrusCorrectCount / intrusData.length) * 100);
+        const feedback = document.getElementById('intrusFeedback');
+        feedback.className = 'feedback-message info show';
+        feedback.innerHTML = `
+          🎉 Jeu terminé !<br>
+          Score : ${intrusCorrectCount}/${intrusData.length} (${percentage}%)<br>
+          ${percentage === 100 ? '👑 Parfait !' : percentage >= 60 ? '👍 Bien joué !' : '📚 Révisez encore !'}
+        `;
+      }
+
+      function resetIntrusGame() {
+        initIntrusGame();
+      }
+
+      // ==========================================
+      // MINI-JEU 4 : DRAG & DROP
+      // ==========================================
+      
+      const dragDropData = {
+        items: [
+          { icon: '📍', type: 'localisation' },
+          { icon: '📷', type: 'camera' },
+          { icon: '🎤', type: 'microphone' },
+          { icon: '👥', type: 'contacts' },
+          { icon: '📁', type: 'stockage' },
+          { icon: '📞', type: 'telephone' }
+        ],
+        zones: [
+          { type: 'localisation', label: '📍 Localisation GPS' },
+          { type: 'camera', label: '📷 Appareil photo' },
+          { type: 'microphone', label: '🎤 Microphone' },
+          { type: 'contacts', label: '👥 Contacts' },
+          { type: 'stockage', label: '📁 Stockage' },
+          { type: 'telephone', label: '📞 Téléphone' }
+        ]
+      };
+
+      function initDragDrop() {
+        const itemsContainer = document.getElementById('dragItems');
+        const zonesContainer = document.getElementById('dropZones');
+        
+        if (!itemsContainer || !zonesContainer) return;
+
+        // Créer les items draggables
+        itemsContainer.innerHTML = '';
+        shuffleArray(dragDropData.items).forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'drag-item';
+          div.draggable = true;
+          div.dataset.type = item.type;
+          div.textContent = item.icon;
+          div.addEventListener('dragstart', handleDragStart);
+          div.addEventListener('dragend', handleDragEnd);
+          itemsContainer.appendChild(div);
+        });
+
+        // Créer les zones de drop
+        zonesContainer.innerHTML = '';
+        dragDropData.zones.forEach(zone => {
+          const div = document.createElement('div');
+          div.className = 'drop-zone';
+          div.dataset.type = zone.type;
+          div.innerHTML = `
+            <div class="drop-zone-label">${zone.label}</div>
+            <div class="drop-zone-content"></div>
+          `;
+          div.addEventListener('dragover', handleDragOver);
+          div.addEventListener('drop', handleDrop);
+          div.addEventListener('dragleave', handleDragLeave);
+          zonesContainer.appendChild(div);
+        });
+
+        document.getElementById('dragFeedback').className = 'feedback-message';
+        document.getElementById('dragCorrect').textContent = '0/6';
+        document.getElementById('dragAccuracy').textContent = '0%';
+        document.getElementById('checkDragBtn').disabled = false;
+      }
+
+      let draggedElement = null;
+
+      function handleDragStart(e) {
+        draggedElement = e.target;
+        e.target.classList.add('dragging');
+      }
+
+      function handleDragEnd(e) {
+        e.target.classList.remove('dragging');
+      }
+
+      function handleDragOver(e) {
+        e.preventDefault();
+        e.currentTarget.classList.add('drag-over');
+      }
+
+      function handleDragLeave(e) {
+        e.currentTarget.classList.remove('drag-over');
+      }
+
+      function handleDrop(e) {
+        e.preventDefault();
+        const dropZone = e.currentTarget;
+        dropZone.classList.remove('drag-over');
+        
+        const content = dropZone.querySelector('.drop-zone-content');
+        
+        // Empêcher plusieurs items dans la même zone
+        if (content.children.length === 0) {
+          content.appendChild(draggedElement);
+        }
+      }
+
+      function checkDragDrop() {
+        let correct = 0;
+        const zones = document.querySelectorAll('.drop-zone');
+        
+        zones.forEach(zone => {
+          const zoneType = zone.dataset.type;
+          const content = zone.querySelector('.drop-zone-content');
+          const item = content.querySelector('.drag-item');
+          
+          zone.classList.remove('correct', 'incorrect');
+          
+          if (item) {
+            const itemType = item.dataset.type;
+            if (itemType === zoneType) {
+              zone.classList.add('correct');
+              correct++;
+            } else {
+              zone.classList.add('incorrect');
+            }
+          }
+        });
+
+        const percentage = Math.round((correct / 6) * 100);
+        document.getElementById('dragCorrect').textContent = `${correct}/6`;
+        document.getElementById('dragAccuracy').textContent = `${percentage}%`;
+
+        const feedback = document.getElementById('dragFeedback');
+        feedback.className = `feedback-message ${percentage >= 60 ? 'success' : 'error'} show`;
+        feedback.innerHTML = `
+          ${percentage === 100 ? '🎉 Parfait !' : percentage >= 60 ? '👍 Bien !' : '❌ Réessayez !'}<br>
+          ${correct}/6 bien placés (${percentage}%)
+        `;
+
+        document.getElementById('checkDragBtn').disabled = true;
+      }
+
+      function resetDragDrop() {
+        initDragDrop();
+      }
+
+      // ==========================================
+      // MINI-JEU 5 : MÉMOS INTERACTIFS
+      // ==========================================
+      
+      const memoData = [
+        {
+          question: "🔍 Pictogramme : Connexion internet sans fil à la maison",
+          answer: "📶 <strong>WiFi</strong> - Se connecte à votre box internet. Économise vos données mobiles. Appui long pour choisir le réseau."
+        },
+        {
+          question: "🔍 Pictogramme : Connexions accessoires sans fil (écouteurs, montres)",
+          answer: "ᛒ <strong>Bluetooth</strong> - Connecte casques, montres connectées, voiture. Portée ~10 mètres. Consomme peu de batterie."
+        },
+        {
+          question: "🔍 Pictogramme : Désactive toutes les connexions d'un coup",
+          answer: "✈️ <strong>Mode Avion</strong> - Coupe WiFi, Bluetooth, données mobiles simultanément. Obligatoire en avion. Économise batterie."
+        },
+        {
+          question: "🔍 Pictogramme : Utilise le flash LED pour éclairer",
+          answer: "🔦 <strong>Lampe torche</strong> - Active le flash de l'appareil photo. Simple toucher pour allumer/éteindre. Consomme batterie."
+        },
+        {
+          question: "🔍 Pictogramme : Contrôle l'intensité de l'éclairage écran",
+          answer: "☀️ <strong>Luminosité</strong> - Curseur horizontal ajustable. Luminosité élevée = batterie consommée. Mode automatique disponible."
+        },
+        {
+          question: "🔍 Pictogramme : Règle le volume sonneries et médias",
+          answer: "🔊 <strong>Volume</strong> - Curseur horizontal. 3 types : sonnerie, média, alarme. Boutons physiques aussi disponibles."
+        }
+      ];
+
+      function initMemos() {
+        const container = document.getElementById('memoItems');
+        if (!container) return;
+        
+        container.innerHTML = '';
+
+        memoData.forEach((memo, index) => {
+          const div = document.createElement('div');
+          div.className = 'memo-item';
+          div.innerHTML = `
+            <div class="memo-question">${memo.question}</div>
+            <button class="game-button reveal" onclick="revealMemo(${index})">👁️ Révéler</button>
+            <div class="memo-answer" id="memo-answer-${index}">${memo.answer}</div>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      function revealMemo(index) {
+        const answer = document.getElementById(`memo-answer-${index}`);
+        answer.classList.add('revealed');
+      }
+
+      function revealAllMemos() {
+        document.querySelectorAll('.memo-answer').forEach(answer => {
+          answer.classList.add('revealed');
+        });
+      }
+
+      function resetMemos() {
+        document.querySelectorAll('.memo-answer').forEach(answer => {
+          answer.classList.remove('revealed');
+        });
+      }
+
+            // MINI-JEU 6 : VRAI ou FAUX
+            // ==========================================
+            
+            const trueFalseData = [
+              {
+                statement: "Le WiFi consomme plus de batterie que les données mobiles 4G/5G",
+                isTrue: false,
+                explanation: "❌ FAUX - Le WiFi consomme généralement MOINS de batterie que les données mobiles. Privilégiez le WiFi quand c'est possible !"
+              },
+              {
+                statement: "Le Mode Avion désactive uniquement le réseau mobile, pas le WiFi ni le Bluetooth",
+                isTrue: false,
+                explanation: "❌ FAUX - Le Mode Avion désactive TOUTES les connexions : réseau mobile, WiFi et Bluetooth simultanément. Vous pouvez réactiver WiFi/Bluetooth manuellement après."
+              },
+              {
+                statement: "Un appui LONG sur un pictogramme du panneau de contrôle rapide ouvre souvent les paramètres détaillés",
+                isTrue: true,
+                explanation: "✅ VRAI - Appui court = activation/désactivation rapide. Appui LONG = accès aux paramètres complets de cette fonction. Très pratique !"
+              },
+              {
+                statement: "Les autorisations d'une application peuvent être modifiées après installation",
+                isTrue: true,
+                explanation: "✅ VRAI - Vous pouvez toujours révoquer ou accorder des autorisations dans Paramètres > Applications > [Nom app] > Autorisations. Rien n'est définitif !"
+              },
+              {
+                statement: "Le Bluetooth a une portée de connexion d'environ 100 mètres",
+                isTrue: false,
+                explanation: "❌ FAUX - Le Bluetooth standard (classe 2) a une portée d'environ 10 mètres. Certains appareils industriels atteignent 100m (classe 1), mais c'est rare sur smartphones."
+              },
+              {
+                statement: "Le pictogramme de la Lampe torche utilise le flash de l'appareil photo",
+                isTrue: true,
+                explanation: "✅ VRAI - La lampe torche active le flash LED intégré à l'appareil photo. C'est pourquoi vous ne pouvez pas utiliser les deux simultanément !"
+              },
+              {
+                statement: "Diminuer la luminosité de l'écran a un impact significatif sur l'autonomie de la batterie",
+                isTrue: true,
+                explanation: "✅ VRAI - L'écran est l'un des plus gros consommateurs de batterie. Réduire la luminosité peut augmenter l'autonomie de 20-30% selon les usages !"
+              }
+            ];
+
+            let trueFalseState = {
+              currentQuestion: 0,
+              score: 0,
+              startTime: null,
+              timerInterval: null
+            };
+
+            function initTrueFalseGame() {
+              trueFalseState = {
+                currentQuestion: 0,
+                score: 0,
+                startTime: Date.now(),
+                timerInterval: null
+              };
+
+              document.getElementById('trueFalseQuestion').textContent = `1/${trueFalseData.length}`;
+              document.getElementById('trueFalseScore').textContent = `0/${trueFalseData.length}`;
+              document.getElementById('trueFalseTimer').textContent = '0:00';
+              
+              showTrueFalseQuestion();
+              startTrueFalseTimer();
+            }
+
+            function startTrueFalseTimer() {
+              if (trueFalseState.timerInterval) {
+                clearInterval(trueFalseState.timerInterval);
+              }
+              
+              trueFalseState.timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - trueFalseState.startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('trueFalseTimer').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+              }, 1000);
+            }
+
+            function showTrueFalseQuestion() {
+              const question = trueFalseData[trueFalseState.currentQuestion];
+              document.getElementById('trueFalseStatement').textContent = question.statement;
+              document.getElementById('trueFalseFeedback').className = 'feedback-message';
+              document.getElementById('trueFalseFeedback').innerHTML = '';
+              
+              // Réactiver les boutons
+              document.querySelectorAll('.tf-buttons button').forEach(btn => {
+                btn.disabled = false;
+              });
+            }
+
+            function answerTrueFalse(userAnswer) {
+              const question = trueFalseData[trueFalseState.currentQuestion];
+              const isCorrect = userAnswer === question.isTrue;
+              
+              // Désactiver les boutons après réponse
+              document.querySelectorAll('.tf-buttons button').forEach(btn => {
+                btn.disabled = true;
+              });
+
+              if (isCorrect) {
+                trueFalseState.score++;
+                document.getElementById('trueFalseScore').textContent = `${trueFalseState.score}/${trueFalseData.length}`;
+              }
+
+              const feedback = document.getElementById('trueFalseFeedback');
+              feedback.className = `feedback-message ${isCorrect ? 'success' : 'error'} show`;
+              feedback.innerHTML = question.explanation;
+
+              // Passer à la question suivante après 3 secondes
+              setTimeout(() => {
+                trueFalseState.currentQuestion++;
+                
+                if (trueFalseState.currentQuestion < trueFalseData.length) {
+                  document.getElementById('trueFalseQuestion').textContent = 
+                    `${trueFalseState.currentQuestion + 1}/${trueFalseData.length}`;
+                  showTrueFalseQuestion();
+                } else {
+                  endTrueFalseGame();
+                }
+              }, 3000);
+            }
+
+            function endTrueFalseGame() {
+              clearInterval(trueFalseState.timerInterval);
+              
+              const totalTime = Math.floor((Date.now() - trueFalseState.startTime) / 1000);
+              const percentage = Math.round((trueFalseState.score / trueFalseData.length) * 100);
+              
+              const feedback = document.getElementById('trueFalseFeedback');
+              feedback.className = 'feedback-message success show';
+              feedback.innerHTML = `
+                <strong>🎉 Jeu terminé !</strong><br>
+                Score final : ${trueFalseState.score}/${trueFalseData.length} (${percentage}%)<br>
+                Temps total : ${totalTime}s<br>
+                ${percentage === 100 ? '🏆 Parfait ! Vous êtes un expert Android !' : 
+                  percentage >= 70 ? '👍 Très bien ! Bonne maîtrise des concepts.' : 
+                  '📚 Relisez la formation pour améliorer votre score !'}
+              `;
+              
+              document.getElementById('trueFalseStatement').textContent = 
+                'Cliquez sur "Recommencer" pour rejouer !';
+            }
+
+            function resetTrueFalseGame() {
+              initTrueFalseGame();
+            }
+
+            // ==========================================
+            // MINI-JEU 7 : QUIZ RAPIDE CHRONO
+            // ==========================================
+            
+            const quickQuizData = [
+              { q: "Pictogramme pour connexion sans fil à la maison ?", a: "WiFi 📶", options: ["WiFi 📶", "Bluetooth ᛒ", "4G 📱"] },
+              { q: "Pictogramme pour désactiver toutes connexions ?", a: "Mode Avion ✈️", options: ["Mode Avion ✈️", "WiFi 📶", "Bluetooth ᛒ"] },
+              { q: "Pictogramme pour connecter écouteurs sans fil ?", a: "Bluetooth ᛒ", options: ["Bluetooth ᛒ", "WiFi 📶", "Volume 🔊"] },
+              { q: "Pictogramme pour éclairer avec le flash ?", a: "Lampe 🔦", options: ["Lampe 🔦", "Luminosité ☀️", "Flash ⚡"] },
+              { q: "Pictogramme pour régler éclairage écran ?", a: "Luminosité ☀️", options: ["Luminosité ☀️", "Lampe 🔦", "Batterie 🔋"] },
+              { q: "Pictogramme pour connexion internet mobile ?", a: "4G-5G 📱", options: ["4G-5G 📱", "WiFi 📶", "Bluetooth ᛒ"] },
+              { q: "Pictogramme pour voir charge restante ?", a: "Batterie 🔋", options: ["Batterie 🔋", "Volume 🔊", "Luminosité ☀️"] },
+              { q: "Pictogramme pour régler sonneries et médias ?", a: "Volume 🔊", options: ["Volume 🔊", "Bluetooth ᛒ", "Mode Vibreur 📳"] },
+              { q: "Quelle connexion consomme MOINS de batterie ?", a: "WiFi", options: ["WiFi", "4G", "5G"] },
+              { q: "Portée typique du Bluetooth ?", a: "~10 mètres", options: ["~10 mètres", "~100 mètres", "~1 kilomètre"] },
+              { q: "Appui LONG sur un pictogramme ouvre ?", a: "Paramètres détaillés", options: ["Paramètres détaillés", "Rien", "Menu principal"] },
+              { q: "Autorisation DANGEREUSE pour une lampe torche ?", a: "Appareil photo", options: ["Appareil photo", "Internet", "Contacts"] },
+              { q: "Couleur notification urgente Android ?", a: "Rouge", options: ["Rouge", "Vert", "Bleu"] },
+              { q: "Geste pour ouvrir panneau de contrôle ?", a: "Glisser du haut", options: ["Glisser du haut", "Glisser du bas", "Secouer"] },
+              { q: "Format d'un pictogramme Android ?", a: "Icône + Texte", options: ["Icône + Texte", "Texte seul", "Icône seule"] },
+              { q: "Où modifier autorisations d'une app ?", a: "Paramètres > Apps", options: ["Paramètres > Apps", "Play Store", "Notifications"] },
+              { q: "Mode Avion coupe aussi le WiFi ?", a: "Oui", options: ["Oui", "Non", "Selon modèle"] },
+              { q: "Réduire luminosité améliore ?", a: "Autonomie", options: ["Autonomie", "Vitesse", "Mémoire"] },
+              { q: "Bluetooth classe 2 : portée ?", a: "10m", options: ["10m", "50m", "100m"] },
+              { q: "Catégorie app de lampe torche ?", a: "Outils", options: ["Outils", "Jeux", "Social"] },
+              { q: "Action pour activer WiFi rapidement ?", a: "Panneau contrôle", options: ["Panneau contrôle", "Paramètres", "Play Store"] },
+              { q: "Pictogramme rotation écran ?", a: "🔄", options: ["🔄", "🔃", "↩️"] },
+              { q: "Notification = alerte sur quoi ?", a: "Événement", options: ["Événement", "Batterie", "Écran"] },
+              { q: "NFC sert à ?", a: "Paiement sans contact", options: ["Paiement sans contact", "WiFi", "Bluetooth"] }
+            ];
+
+            let quickQuizState = {
+              timeLeft: 30,
+              currentQuestionIndex: 0,
+              score: 0,
+              questionsAsked: [],
+              timerInterval: null,
+              isRunning: false
+            };
+
+            function startQuickQuiz() {
+              quickQuizState = {
+                timeLeft: 30,
+                currentQuestionIndex: 0,
+                score: 0,
+                questionsAsked: [],
+                timerInterval: null,
+                isRunning: true
+              };
+
+              document.getElementById('quickQuizTime').textContent = '30s';
+              document.getElementById('quickQuizCorrect').textContent = '0';
+              document.getElementById('quickQuizTotal').textContent = '0';
+              document.getElementById('quickQuizFeedback').className = 'feedback-message';
+              document.getElementById('quickQuizFeedback').innerHTML = '';
+              
+              // Masquer le bouton de démarrage et le bouton Recommencer
+              document.getElementById('startQuickQuiz').style.display = 'none';
+              document.getElementById('resetQuickQuizBtn').style.display = 'none';
+
+              showQuickQuestion();
+              startQuickQuizTimer();
+            }
+
+            function startQuickQuizTimer() {
+              if (quickQuizState.timerInterval) {
+                clearInterval(quickQuizState.timerInterval);
+              }
+
+              quickQuizState.timerInterval = setInterval(() => {
+                quickQuizState.timeLeft--;
+                document.getElementById('quickQuizTime').textContent = `${quickQuizState.timeLeft}s`;
+
+                if (quickQuizState.timeLeft <= 0) {
+                  endQuickQuiz();
+                }
+              }, 1000);
+            }
+
+            function showQuickQuestion() {
+              if (!quickQuizState.isRunning) return;
+
+              // Choisir une question aléatoire non encore posée
+              let availableQuestions = quickQuizData.filter((_, idx) => 
+                !quickQuizState.questionsAsked.includes(idx)
+              );
+
+              if (availableQuestions.length === 0) {
+                // Toutes les questions ont été posées, réinitialiser
+                quickQuizState.questionsAsked = [];
+                availableQuestions = quickQuizData;
+              }
+
+              const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+              quickQuizState.currentQuestionIndex = quickQuizData.indexOf(randomQuestion);
+              quickQuizState.questionsAsked.push(quickQuizState.currentQuestionIndex);
+
+              document.getElementById('quickQuizQuestion').textContent = randomQuestion.q;
+
+              const optionsContainer = document.getElementById('quickQuizOptions');
+              optionsContainer.innerHTML = '';
+
+              randomQuestion.options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'game-button';
+                btn.textContent = option;
+                btn.onclick = () => answerQuickQuiz(option);
+                optionsContainer.appendChild(btn);
+              });
+            }
+
+            function answerQuickQuiz(answer) {
+              if (!quickQuizState.isRunning) return;
+
+              const question = quickQuizData[quickQuizState.currentQuestionIndex];
+              const isCorrect = answer === question.a;
+
+              if (isCorrect) {
+                quickQuizState.score++;
+                document.getElementById('quickQuizCorrect').textContent = quickQuizState.score;
+              }
+              
+              // Mettre à jour le total
+              document.getElementById('quickQuizTotal').textContent = quickQuizState.questionsAsked.length;
+
+              // Flash feedback
+              const feedback = document.getElementById('quickQuizFeedback');
+              feedback.className = `feedback-message ${isCorrect ? 'success' : 'error'} show`;
+              feedback.innerHTML = isCorrect ? '✅ Correct !' : `❌ C'était : ${question.a}`;
+
+              setTimeout(() => {
+                feedback.className = 'feedback-message';
+              }, 800);
+
+              // Passer à la question suivante immédiatement
+              setTimeout(() => {
+                showQuickQuestion();
+              }, 900);
+            }
+
+            function endQuickQuiz() {
+              clearInterval(quickQuizState.timerInterval);
+              quickQuizState.isRunning = false;
+
+              const totalQuestions = quickQuizState.questionsAsked.length;
+              const percentage = totalQuestions > 0 ? 
+                Math.round((quickQuizState.score / totalQuestions) * 100) : 0;
+
+              const feedback = document.getElementById('quickQuizFeedback');
+              feedback.className = 'feedback-message success show';
+              feedback.innerHTML = `
+                <strong>⏰ Temps écoulé !</strong><br>
+                Score final : ${quickQuizState.score}/${totalQuestions} (${percentage}%)<br>
+                ${quickQuizState.score >= 10 ? '🏆 Excellent réflexes !' : 
+                  quickQuizState.score >= 6 ? '👍 Bon score !' : 
+                  '📚 Entraînez-vous encore !'}
+              `;
+
+              document.getElementById('quickQuizQuestion').textContent = 
+                'Cliquez sur "Recommencer" pour rejouer !';
+              document.getElementById('quickQuizOptions').innerHTML = '';
+              
+              // Afficher le bouton Recommencer et masquer le bouton Démarrer
+              document.getElementById('startQuickQuiz').style.display = 'none';
+              document.getElementById('resetQuickQuizBtn').style.display = 'inline-block';
+            }
+
+            function resetQuickQuiz() {
+              clearInterval(quickQuizState.timerInterval);
+              startQuickQuiz();
+            }
+
+            // ==========================================
+            // MINI-JEU 8 : PUZZLE ORDRE (Étapes OUIGO)
+            // ==========================================
+            
+            const puzzleSteps = [
+              { id: 1, text: "1️⃣ Ouvrir l'application Ouigo installée sur votre smartphone" },
+              { id: 2, text: "2️⃣ Se connecter avec votre compte (email + mot de passe)" },
+              { id: 3, text: "3️⃣ Sélectionner votre billet dans 'Mes voyages' ou 'Mes billets'" },
+              { id: 4, text: "4️⃣ Appuyer sur 'Afficher le billet' pour voir le QR code" },
+              { id: 5, text: "5️⃣ Présenter le QR code aux bornes d'accès en gare" },
+              { id: 6, text: "6️⃣ Scanner le QR code pour valider et accéder au quai" }
+            ];
+
+            let puzzleState = {
+              currentOrder: []
+            };
+
+            function initPuzzle() {
+              // Mélanger les étapes
+              puzzleState.currentOrder = [...puzzleSteps].sort(() => Math.random() - 0.5);
+              
+              renderPuzzle();
+              document.getElementById('puzzleFeedback').className = 'feedback-message';
+              document.getElementById('puzzleFeedback').innerHTML = '';
+            }
+
+            function renderPuzzle() {
+              const container = document.getElementById('puzzleSteps');
+              container.innerHTML = '';
+
+              puzzleState.currentOrder.forEach((step, index) => {
+                const div = document.createElement('div');
+                div.className = 'puzzle-step';
+                div.innerHTML = `
+                  <span class="puzzle-step-text">${step.text}</span>
+                  <div class="puzzle-controls">
+                    <button class="puzzle-btn" onclick="movePuzzleStep(${index}, -1)" 
+                      ${index === 0 ? 'disabled' : ''}>▲</button>
+                    <button class="puzzle-btn" onclick="movePuzzleStep(${index}, 1)" 
+                      ${index === puzzleState.currentOrder.length - 1 ? 'disabled' : ''}>▼</button>
+                  </div>
+                `;
+                container.appendChild(div);
+              });
+            }
+
+            function movePuzzleStep(index, direction) {
+              const newIndex = index + direction;
+              
+              if (newIndex < 0 || newIndex >= puzzleState.currentOrder.length) return;
+
+              // Échanger les positions
+              const temp = puzzleState.currentOrder[index];
+              puzzleState.currentOrder[index] = puzzleState.currentOrder[newIndex];
+              puzzleState.currentOrder[newIndex] = temp;
+
+              renderPuzzle();
+            }
+
+            function checkPuzzleOrder() {
+              let isCorrect = true;
+              
+              for (let i = 0; i < puzzleState.currentOrder.length; i++) {
+                if (puzzleState.currentOrder[i].id !== puzzleSteps[i].id) {
+                  isCorrect = false;
+                  break;
+                }
+              }
+
+              const feedback = document.getElementById('puzzleFeedback');
+              
+              if (isCorrect) {
+                feedback.className = 'feedback-message success show';
+                feedback.innerHTML = `
+                  <strong>🎉 Parfait !</strong><br>
+                  Les étapes sont dans le bon ordre !<br>
+                  Vous savez maintenant utiliser votre billet Ouigo sur Android 🚄
+                `;
+              } else {
+                feedback.className = 'feedback-message error show';
+                feedback.innerHTML = `
+                  <strong>❌ Pas encore !</strong><br>
+                  L'ordre n'est pas correct. Utilisez les flèches ▲▼ pour réorganiser les étapes.<br>
+                  💡 Astuce : Commencez par "Ouvrir l'application"...
+                `;
+              }
+            }
+
+            function resetPuzzle() {
+              initPuzzle();
+            }
+
+      // ==========================================
+      // INITIALISATION GLOBALE
+      // ==========================================
+      
+      window.addEventListener('DOMContentLoaded', () => {
+        // Initialiser tous les mini-jeux (8 jeux au total)
+        if (document.getElementById('memoryBoard')) initMemoryGame();
+        if (document.getElementById('logicQuestions')) initLogicQuiz();
+        if (document.getElementById('trueFalseStatement')) initTrueFalseGame();
+        if (document.getElementById('intrusGame')) initIntrusGame();
+        if (document.getElementById('quickQuizQuestion')) { /* Quiz Chrono démarre manuellement avec le bouton */ }
+        if (document.getElementById('dragItems')) initDragDrop();
+        if (document.getElementById('memoItems')) initMemos();
+        if (document.getElementById('puzzleSteps')) initPuzzle();
+      });
+
+    </script>
+  
+
+</body></html>
